@@ -1,0 +1,74 @@
+// Fichier: client/src/components/AffichageTache.scss
+
+.tache-item-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--couleur-bordure);
+    transition: background-color 0.2s ease-in-out;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .form-check-input {
+        cursor: pointer;
+    }
+
+    .tache-details {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .tache-nom {
+        font-weight: 500;
+        color: var(--couleur-texte-principal);
+    }
+
+    .tache-date {
+        font-size: 0.875rem;
+        color: var(--couleur-texte-secondaire);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+    }
+
+    .tache-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .action-btn {
+        background: none;
+        border: none;
+        color: var(--couleur-texte-secondaire);
+        cursor: pointer;
+        padding: 0.25rem;
+        font-size: 0.9rem;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: var(--couleur-theme-vert);
+        }
+    }
+    
+    // Style spécifique pour le bouton supprimer
+    .delete-btn {
+        &:hover {
+            color: var(--couleur-danger); // Devient rouge au survol
+        }
+    }
+
+    &.complete {
+        .tache-nom, .tache-date {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+    }
+}

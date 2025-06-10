@@ -1,0 +1,72 @@
+services:
+  proxy:
+    image: traefik:v2.11
+    command: 
+      - --api.insecure=true
+      - --providers.docker
+    ports:
+      - "8000:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      - "traefik.http.routers.dashboard.rule=Host(`localhost`) && PathPrefix(`/dashboard`)"
+
+  backend:
+    build:
+      context: ./
+      target: backend-dev
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+    develop:
+      watch:
+        - path: ./backend/src
+          action: sync
+          target: /usr/local/app/src
+        - path: ./backend/package.json
+          action: rebuild
+    labels:
+      traefik.http.routers.backend.rule: Host(`localhost`) && PathPrefix(`/api`)
+      traefik.http.services.backend.loadbalancer.server.port: 3000
+
+  client:
+    build:
+      context: ./
+      target: client-dev
+    volumes:
+      - ./client:/usr/local/app
+      - /usr/local/app/node_modules
+    develop:
+      watch:
+        - path: ./client/src
+          action: sync
+          target: /usr/local/app/src
+        - path: ./client/package.json
+          action: rebuild
+    labels:
+      traefik.http.routers.client.rule: Host(`localhost`)
+      traefik.http.services.client.loadbalancer.server.port: 5173
+
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+
+  phpmyadmin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: secret
+    labels:
+      traefik.http.routers.phpmyadmin.rule: Host(`db.localhost`)
+      traefik.http.services.phpmyadmin.loadbalancer.server.port: 80
+
+volumes:
+  todo-mysql-data:
