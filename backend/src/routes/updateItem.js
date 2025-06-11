@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     const currentItem = await db.getItem(req.params.id);
 
     if (!currentItem) {
-        return res.status(404).send({ error: 'Tâche non trouvée.' });
+        return res.status(404).send({ error: 'Tâche non trouvée. ' });
     }
 
     // ÉTAPE 2 : Créer l'objet mis à jour.

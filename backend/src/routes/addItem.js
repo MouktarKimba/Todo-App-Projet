@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 
     // Ajout d'une petite validation
     if (!name || !dueDate) {
-        return res.status(400).send({ error: 'Le nom et la date d\'échéance sont requis.' });
+        return res.status(400).send({ error: 'Le nom et la date d\'échéance sont requis. ' });
     }
 
     const item = {
