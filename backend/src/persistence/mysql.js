@@ -35,7 +35,7 @@ async function init() {
         password,
         database,
         charset: 'utf8mb4',
-    }).promise(); // On utilise les promesses pour un code plus propre
+    }).promise(); //  code plus propre
 
     // MODIFIÉ : Ajout de la colonne "dueDate" de type DATE
     const createTableSql = `
