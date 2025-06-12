@@ -1,92 +1,132 @@
-# Gestionnaire de Tâches - Projet Académique
+# Gestionnaire de Tâches
 
-Bienvenue sur mon projet de Gestionnaire de Tâches, une application web moderne et complète développée dans le cadre de mon cursus académique. L'application permet de gérer des tâches quotidiennes de manière simple et intuitive.
+Une application web full-stack conteneurisée pour la gestion de tâches, développée avec un workflow de développement professionnel et collaboratif.
 
-Ce projet démontre la mise en place d'une architecture web complète avec un frontend en React, un backend en Node.js, et une base de données MySQL, le tout orchestré dans un environnement de développement professionnel avec Docker.
+[![Licence: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![Aperçu de l'application](https://i.imgur.com/uG9nB7Q.png) 
-*NOTE : Je te conseille de faire une vraie capture d'écran de ton application finale et de remplacer le lien ci-dessus.*
+[![React](https://img.shields.io/badge/React-18-blue?logo=react)](https://reactjs.org/)
 
----
+[![Node.js](https://img.shields.io/badge/Node.js-20-green?logo=nodedotjs)](https://nodejs.org/)
 
-## ✨ Fonctionnalités
+[![Docker](https://img.shields.io/badge/Docker-gray?logo=docker)](https://www.docker.com/)
 
-* **Ajout, Modification et Suppression** de tâches.
-* **Dates d'échéance** pour chaque tâche.
-* Marquer une tâche comme **terminée** et consulter l'historique.
-* **Filtres dynamiques** pour afficher les tâches : "Aujourd'hui", "À venir" et "En retard".
-* Interface utilisateur **moderne et responsive** avec un fond vidéo animé pour une expérience utilisateur agréable.
+[![MySQL](https://img.shields.io/badge/MySQL-8-blue?logo=mysql)](https://www.mysql.com/)
 
 ---
 
-## 🛠️ Technologies Utilisées
+### Table des matières
 
-Ce projet a été construit avec les technologies suivantes :
+1.  [À propos du projet](#à-propos-du-projet)
 
-* **Frontend :**
-    * [React](https://reactjs.org/)
-    * [Vite](https://vitejs.dev/)
-    * [Sass](https://sass-lang.com/)
-    * [React-Bootstrap](https://react-bootstrap.github.io/)
-    * [date-fns](https://date-fns.org/) pour la manipulation des dates.
+2.  [Stack Technique](#stack-technique)
 
-* **Backend :**
-    * [Node.js](https://nodejs.org/)
-    * [Express.js](https://expressjs.com/)
+3.  [Démarrage Rapide](#démarrage-rapide)
 
-* **Base de Données :**
-    * [MySQL](https://www.mysql.com/)
+4.  [Utilisation](#utilisation)
 
-* **Environnement & Déploiement :**
-    * [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
-    * [Traefik](https://traefik.io/traefik/) comme reverse proxy.
+5.  [Workflow Git](#workflow-git)
+
+6.  [Licence](#licence)
+
+7.  [Contact](#contact)
 
 ---
 
-## 🚀 Installation et Lancement
+## À propos du projet
 
-Pour lancer ce projet en local, vous aurez besoin de **Docker Desktop** installé sur votre machine.
+Ce projet est une application web de type "ToDo List" robuste et complète. Il permet aux utilisateurs de gérer leurs tâches quotidiennes de manière efficace, avec des fonctionnalités d'ajout, de modification, de suppression et de suivi par date d'échéance.
 
-1.  **Clonez ce dépôt GitHub :**
+L'objectif était de mettre en œuvre une solution technique complète, de l'infrastructure au développement applicatif, en utilisant des pratiques professionnelles de gestion de version avec Git et une architecture entièrement conteneurisée.
+
+### Fonctionnalités
+
+* **Gestion complète du cycle de vie des tâches** (CRUD).
+
+* **Suivi par date d'échéance** pour une meilleure organisation.
+
+* **Statut de complétion** avec un historique des tâches terminées.
+
+* **Filtres dynamiques** pour trier les tâches par "Aujourd'hui", "À venir" et "En retard".
+
+* **Persistance des données** dans une base de données MySQL.
+
+---
+
+## Stack Technique
+
+| Catégorie      | Technologies                                                                                  |
+| -------------- | --------------------------------------------------------------------------------------------- |
+| **Frontend** | React, Vite, Sass, React-Bootstrap, date-fns                                                  |
+| **Backend** | Node.js, Express.js                                                                           |
+| **Base de Données** | MySQL                                                                                         |
+| **Infrastructure** | Docker, Docker Compose, Traefik (Reverse Proxy)                                               |
+
+---
+
+## Démarrage Rapide
+
+Pour lancer ce projet en local, **Docker Desktop** doit être installé et en cours d'exécution.
+
+### Prérequis
+
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+### Installation
+
+1.  **Clonez le dépôt :**
     ```bash
-    # Remplace avec l'URL de TON propre dépôt GitHub
-    git clone [https://github.com/TonNom/TonRepo.git](https://github.com/TonNom/TonRepo.git)
+    git clone [https://github.com/MouktarKimba/Todo-App-Projet.git](https://github.com/MouktarKimba/Todo-App-Projet.git)
     ```
 
 2.  **Naviguez dans le dossier du projet :**
     ```bash
-    cd TonRepo
+    cd Todo-App-Projet
     ```
 
-3.  **Construisez et lancez les conteneurs Docker :**
-    Cette commande va construire les images du backend et du frontend, télécharger MySQL et le proxy, et démarrer tous les services.
+3.  **Construisez et lancez l'environnement :**
+    Cette commande unique va construire les images, installer les dépendances et démarrer tous les services.
     ```bash
     docker-compose up --build
     ```
-    La première fois, cela peut prendre quelques minutes.
 
 ---
 
-## 🌐 Comment Utiliser l'Application
+## Utilisation
 
-Une fois les conteneurs démarrés, vous pouvez accéder aux différents services :
+Une fois les conteneurs démarrés, les services suivants sont disponibles :
 
-* **Application Principale :**
-    * Ouvrez votre navigateur et allez à l'adresse : **[http://localhost:8000](http://localhost:8000)**
+* **Application Principale :** ➡️ **[http://localhost:8000](http://localhost:8000)**
 
-* **Gestion de la Base de Données (phpMyAdmin) :**
-    * Pour visualiser directement les données dans la base MySQL, allez à : **[http://db.localhost:8000](http://db.localhost:8000)**
-    * *(Note: Cette adresse est routée par le proxy, d'où le port 8000)*
+* **Admin Base de Données (phpMyAdmin) :** ➡️ **[http://db.localhost:8000](http://db.localhost:8000)**
 
-* **Tableau de Bord du Proxy (Traefik) :**
-    * Pour voir l'état du routage et des services, allez à : **[http://localhost:8080](http://localhost:8080)**
+* **Tableau de Bord du Proxy (Traefik) :** ➡️ **[http://localhost:8080](http://localhost:8080)**
+
+Pourarrêter tous les services, retournez dans votre terminal et lancez `docker-compose down`.
 
 ---
 
-## 🛑 Arrêter l'Application
+## Workflow Git
 
-Pour arrêter tous les services et supprimer les conteneurs, retournez dans votre terminal et lancez la commande :
+Ce projet adhère à un modèle Git structuré pour garantir un travail d'équipe organisé et un code de qualité.
 
-```bash
-docker-compose down
-```
+* `main` : Branche de production. Contient la version finale et validée du code. Elle est protégée.
+
+* `develop` : Branche d'intégration où toutes les fonctionnalités sont fusionnées et testées.
+
+* `infrastructure` : Branche dédiée à la configuration des conteneurs (Dockerfile, compose.yml).
+
+Toutes les contributions sont gérées via des **Pull Requests** et requièrent une révision, assurant ainsi la traçabilité et la qualité des modifications.
+
+---
+
+## Licence
+
+Ce projet est distribué sous la licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
+
+---
+
+## Contact
+
+**Mouktar Kimba** - [GitHub](https://github.com/MouktarKimba)
+
+Lien du Projet : [https://github.com/MouktarKimba/Todo-App-Projet](https://github.com/MouktarKimba/Todo-App-Projet)

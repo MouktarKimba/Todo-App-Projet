@@ -2,7 +2,7 @@
   "name": "gestionnaire-taches-api",
   "version": "1.0.0",
   "description": "API backend pour l'application de gestion de tâches.",
-  "author": "Ton Nom <ton.email@example.com>",
+  "author": "MSSI-1 <info@sahelcyber.com>",
   "license": "MIT",
   "main": "index.js",
   "repository": {
